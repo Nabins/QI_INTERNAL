@@ -1,0 +1,120 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta>
+
+  <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blank">
+    <title>Title</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <link th:href="@{/adminstatic/css/admin.css}" rel="stylesheet">
+ <script th:src="@{/adminstatic/js/admin.js}"></script>
+ <script type="text/javascript" th:src="@{/ckeditor/ckeditor.js}"></script>
+</head>
+
+<body>
+
+<div class="page-wrapper chiller-theme toggled">
+ 
+ <main class="page-content">
+    <div class="container-fluid" style = "margin-top: 51px">
+      <hr>      
+      <!-- start of main body -->
+     
+      <div class="container">
+		<div class="columns">
+			<div class="column is-full">
+				<div class="box">
+				
+				<form th:action="@{/run-status-form}" th:object="${runstatusform}" method="POST">
+						
+						
+						<div class="form-group">
+							<label class="label is-small">Run Id</label>
+							<div class="col-sm-10">
+								<input th:field="*{runid}" class="input is-small" />
+							</div>
+						</div>	
+						
+						<div class="form-group">
+							<label class="label is-small">Client Name</label>
+							<div class="col-sm-10">
+								<input th:field="*{clientName}" class="input is-small" />
+							</div>
+						</div>	
+						
+						<div class="form-group">
+							<label class="label is-small">ProjectType</label>
+							<div class="col-sm-10">
+								<select th:field="*{projectType}">
+									<option value="">Select ProjectType</option>
+										<option th:each="projecttype : ${projecttypes}" th:value="${projecttype.ProjectType}" th:text="${projecttype.ProjectType}"></option>
+									</select>
+							</div>
+						</div>	
+						
+					
+						
+						<div class="form-group">
+							<label class="label is-small">RunType</label>
+							<div class="col-sm-10">
+								<select th:field="*{RunType}">
+									<option value="">Select Runtype</option>
+										<option th:each="runtype : ${runtypes}" th:value="${runtype.runType}" th:text="${runtype.runType}"></option>
+									</select>
+							</div>
+						</div>	
+						
+						
+						<div class="form-group">
+							<label class="label is-small">RunType</label>
+							<div class="col-sm-10">
+								<select th:field="*{Status}">
+									<option value="">Select Status</option>
+										<option th:each="currentrunstatus : ${currentrunstatus}" th:value="${currentrunstatus.runstatus}" th:text="${currentrunstatus.runstatus}"></option>
+									</select>
+							</div>
+						</div>
+						
+						
+										
+						
+						<div class="form-group">
+						<label class="label is-small">Issue </label>
+					      <textarea cols="10" rows="5" id="content" name="content" th:field="*{issues}"> 
+					        
+					      </textarea>
+					      <script type="text/javascript">
+					        CKEDITOR.replace('content' );
+					      </script>
+					    </div>
+						
+						<div class="field is-grouped">
+							<div class="col-sm-10">
+								<button class="button is-success is-small">Submit</button>
+							</div>
+							<div class="col-sm-10">
+								<a th:href="@{/run-status-form-post}" class="button is-danger is-small">Cancel</a>
+							</div>
+						</div>
+					</form>
+								
+				</div>
+			</div>
+		</div>
+	</div>
+     </div>
+       <!-- end of main body -->
+      
+
+  </main>
+</div>
+</body>
+</html> 

@@ -1,0 +1,17 @@
+package com.example.projectx.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/")
+public class IndexController {
+	@RequestMapping("/index")
+	@RequestBody
+	public String  Index() {
+		System.out.println("hello world");
+		return "index";
+	}
+
+}

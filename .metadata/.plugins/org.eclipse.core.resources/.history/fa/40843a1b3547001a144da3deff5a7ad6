@@ -1,0 +1,25 @@
+package com.example.demo.generics;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+//    	Test <String, Integer> obj = 
+//                new Test<String, Integer>("GfG", 15); 
+//      
+//            obj.print(); 
+    	List names = new ArrayList();
+    	names.add("nabin");
+    	String name =(String) names.get(0);
+    	System.out.println(name);
+        
+    }
+}
+
